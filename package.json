@@ -4,11 +4,11 @@
   "description": "Nest TypeScript starter repository",
   "license": "MIT",
   "scripts": {
+    "start": "node dist/main.js",
     "format": "prettier --write \"**/*.ts\"",
-    "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:dev": "nodemon",
     "prestart:prod": "rm -rf dist && tsc",
-    "start:prod": "node dist/main.js",
+    "start:basic": "ts-node -r tsconfig-paths/register src/main.ts",
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json"
