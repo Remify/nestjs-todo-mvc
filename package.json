@@ -4,11 +4,11 @@
   "description": "Nest TypeScript starter repository",
   "license": "MIT",
   "scripts": {
-    "start": "node dist/main.js",
     "format": "prettier --write \"**/*.ts\"",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:dev": "nodemon",
     "prestart:prod": "rm -rf dist && tsc",
-    "start:basic": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:prod": "node dist/main.js",
     "test": "jest",
     "test:cov": "jest --coverage",
     "test:e2e": "jest --config ./test/jest-e2e.json"
@@ -20,9 +20,12 @@
     "@nestjs/testing": "^4.5.5",
     "@nestjs/typeorm": "^2.0.0",
     "@nestjs/websockets": "^4.5.8",
+    "connection-string": "^0.4.1",
+    "convict": "^4.2.0",
+    "dotenv": "^5.0.1",
+    "mysql": "^2.15.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^5.5.6",
-    "sqlite3": "^4.0.0",
     "typeorm": "^0.1.18",
     "typescript": "^2.6.2"
   },

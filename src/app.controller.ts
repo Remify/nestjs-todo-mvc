@@ -16,14 +16,15 @@ export class AppController {
     return this.todoService.findAll()
   }
 
-  @Post()
+  
+  @Put()
   async new(@Body() todo: Todo): Promise<Todo> {
 
     todo.author = null;
     return this.todoService.create(todo);
   }
 
-  @Put()
+  @Post()
   async update(@Body() todo: Todo): Promise<Todo> {
 
     const changes = { completed: null, title: null };
