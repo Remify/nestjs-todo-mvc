@@ -17,7 +17,7 @@ export class AppController {
   }
 
   @Post()
-  async new(@Body() todo: Todo): Promise<Todo[]> {
+  async new(@Body() todo: Todo): Promise<Todo> {
 
     todo.author = null;
     await this.todoService.create(todo);
@@ -25,7 +25,7 @@ export class AppController {
     return this.todoService.findAll();
   }
 
-  @Put()
+  @Post()
   async update(@Body() todo: Todo): Promise<Todo> {
 
     const changes = { completed: null, title: null };

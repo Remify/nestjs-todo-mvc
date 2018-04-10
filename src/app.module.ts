@@ -10,14 +10,23 @@ import { Todo } from 'models/todo.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: __dirname + '/../db/db.db',
-      entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'root',
+      password: '',
+      database: 'todo-mvc',
+      entities: [User, Todo],
       synchronize: true,
     }),
+    // TypeOrmModule.forRoot({
+    //   type: 'sqlite',
+    //   database: __dirname + '/../db/db.db',
+    //   entities: [`${__dirname}/**/*.entity`]
+    // }),
     TypeOrmModule.forFeature([User, Todo])
   ],
   controllers: [AppController, UserController],
   components: [TodoService, UserService],
 })
-export class AppModule {}
+export class AppModule { }
