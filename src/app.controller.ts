@@ -17,10 +17,12 @@ export class AppController {
   }
 
   @Post()
-  async new(@Body() todo: Todo): Promise<Todo> {
+  async new(@Body() todo: Todo): Promise<Todo[]> {
 
     todo.author = null;
-    return this.todoService.create(todo);
+    await this.todoService.create(todo);
+
+    return this.todoService.findAll();
   }
 
   @Put()
